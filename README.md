@@ -1,6 +1,7 @@
 # Datheon Python - FastAPI Backend Development Internship  
 Application ID: DT-2026-X897O  
-Intern Full Name: Andries Van Der Westhuizen  
+Intern Full Name: Andries Van Der Westhuizen
+## Task1 Name: BookStore REST API with Pydantic Validation
 ## Task1 Detailed Problem Statement and Requirements:
 Implement a clean RESTful API using FastAPI and Pydantic schemas for request validation, query filtering and automatic Swagger docs.
 
@@ -34,7 +35,17 @@ class Book(BaseModel):
   stock_quantity: int = Field(ge=0, le=1000)  
 ```
 
-### Implement GET, POST, PUT, DELETE endpoints
+### Step 2: Implement GET, POST, PUT, DELETE endpoints
+Create a file called app.py that will act as the server and will contain the HTTP endpoints used to create, read, update or delete book information from the system.
+```python
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel, Field
+
+app = FastAPI(title="BookStore REST API with Pydantic Validation")
+app.get("/")
+def root():
+  return{"service" : "BookStore REST API", "status" : "ok"}
+```
 
 ### Add proper HTTP status codes and error handling to the endpoints
 
