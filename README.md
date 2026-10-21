@@ -146,5 +146,6 @@ for book in books:
 	print(r.status_code, r.json())
 ```
 
+
 ## Expected Deliverable:
 Running local API server with interactive Swagger UI (/docs) testing all CRUD operations.
