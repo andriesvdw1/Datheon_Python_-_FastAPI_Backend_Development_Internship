@@ -80,6 +80,12 @@ def update_book(book_id: int, book: Book):
   books[book_id] = stored
   return stored 
 
+# code to remove a book from the books collection
+@app.delete("/books{book_id}", status_code=204)
+def delete_book(book_id : int):
+  if book_id not in books:
+    raise HTTPException(status_code=404, detail="Book with specified book id value not found")
+  del books[book_id]
 ```
 
 ### Add proper HTTP status codes and error handling to the endpoints
