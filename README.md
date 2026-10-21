@@ -124,7 +124,27 @@ The result that shows in the browser is:
 {"service":"BookStore REST API","status":"ok"}
 
 ### Step 4: Create a Client to interact with the server
+With the command prompt still open press the ctrl + c buttons on the
+keyboard to stop the server.
+With the virtual environment (venv) still open run the following command to install the httpx package that will be required for the 
+client:
+```
+pip install httpx
+``` 
+## Contents of client.py file:
+```python
+import httpx
 
+BASE = "http://127.0.0.1:8000"
+
+books = [
+	{"isbn" : "9781801116022","title": "python programming crash course", "author": "Tony F Charles ","publisher": "Tony F. Charles", "year": 2020, "rating": 5},
+]
+
+for book in books:
+	r = httpx.post(f"{BASE}/books", json=book)
+	print(r.status_code, r.json())
+```
 
 ## Expected Deliverable:
 Running local API server with interactive Swagger UI (/docs) testing all CRUD operations.
