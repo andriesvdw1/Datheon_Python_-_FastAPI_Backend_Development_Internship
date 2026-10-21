@@ -92,7 +92,7 @@ def update_book(book_id: int, book_update: BookUpdate):
   update_data = book_update.model_dump(exclude_unset=True)
   updated_book_data = existing_book.model_copy(update=update_data)
 
-  books[book_id] = updated_book_data[]
+  books[book_id] = updated_book_data
   return updated_book_data
 
 # code to remove a book from the books collection
