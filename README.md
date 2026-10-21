@@ -145,7 +145,16 @@ for book in books:
 	r = httpx.post(f"{BASE}/books", json=book)
 	print(r.status_code, r.json())
 ```
+### Testing that the client adds the book to the server:
+In command prompt run the command to start the server:
+```
+python -m uvicorn server:app --reload
+```
+In a different command prompt run the command to start the client:
+python client.py
 
+Output recieved command prompt shows success:
+201 {'isbn': '9781801116022', 'title': 'python programming crash course', 'author': 'Tony F Charles ', 'publisher': 'Tony F. Charles', 'year_published': 2020, 'price': '28.75', 'stock_quantity': 1, 'id': 1}
 
 ## Expected Deliverable:
 Running local API server with interactive Swagger UI (/docs) testing all CRUD operations.
