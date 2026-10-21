@@ -119,6 +119,9 @@ cd ../
 cd ../
 python -m uvicorn server:app --reload
 ```
+Open the web browser and navigate to: http://127.0.0.1:8000/
+The result that shows in the browser is:
+{"service":"BookStore REST API","status":"ok"}
 
 ### Step 4: Create a Client to interact with the server
 
