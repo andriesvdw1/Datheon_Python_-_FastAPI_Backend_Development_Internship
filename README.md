@@ -114,7 +114,7 @@ pip install fastapi uvicorn pydantic
 ```
 Command to start the server:
 ```
-python -m uvicorn app:app --reload
+python -m uvicorn server:app --reload
 ```
 
 ### Step 4: Create a Client to interact with the server
