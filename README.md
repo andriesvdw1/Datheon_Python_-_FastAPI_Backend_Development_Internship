@@ -56,7 +56,7 @@ from pydantic import BaseModel, Field
 
 app = FastAPI(title="BookStore REST API with Pydantic Validation")
 # code to confirm that the server is running
-app.get("/")
+@app.get("/")
 def root():
   return{"service" : "BookStore REST API", "status" : "ok"}
 
@@ -67,7 +67,7 @@ books :dict[int, BookOut] = {}
 next_id = 1
 
 # code to create a new book and add it to the collection of books
-app.post("/books", response_model=BookOut, status_code=201)
+@app.post("/books", response_model=BookOut, status_code=201)
 def create_book(book: Book):
   global next_id
   stored = BookOut(id=next_id, **book.model_dump())
