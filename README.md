@@ -103,5 +103,15 @@ def delete_book(book_id : int):
   del books[book_id]
 ```
 
+### Step 3: Create a Python virtual environment and install dependencies
+Command to run in command prompt on Windows:
+```
+python -m venv venv
+cd venv
+cd Scripts
+activate.bat
+pip install fastapi uvicorn pydantic
+```
+
 ## Expected Deliverable:
 Running local API server with interactive Swagger UI (/docs) testing all CRUD operations.
