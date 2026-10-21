@@ -112,6 +112,13 @@ cd Scripts
 activate.bat
 pip install fastapi uvicorn pydantic
 ```
+Command to start the server:
+```
+python -m uvicorn app:app --reload
+```
+
+### Step 4: Create a Client to interact with the server
+
 
 ## Expected Deliverable:
 Running local API server with interactive Swagger UI (/docs) testing all CRUD operations.
