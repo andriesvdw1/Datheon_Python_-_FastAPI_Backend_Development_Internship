@@ -47,7 +47,7 @@ class BookUpdate(BaseModel):
   stock_quantity: Optional[int] = Field(default=None,ge=0, le=1000)
 ```
 
-### Step 2: Implement GET, POST, PUT, DELETE endpoints
+### Step 2: Implement GET, POST, PUT, DELETE endpoints with status codes and validation
 Create a file called app.py that will act as the server and will contain the HTTP endpoints used to create, read, update or delete book information from the system.
 ```python
 from typing import Optional
@@ -102,8 +102,6 @@ def delete_book(book_id : int):
     raise HTTPException(status_code=404, detail="Book with specified book id value not found")
   del books[book_id]
 ```
-
-### Add proper HTTP status codes and error handling to the endpoints
 
 ## Expected Deliverable:
 Running local API server with interactive Swagger UI (/docs) testing all CRUD operations.
