@@ -8,7 +8,18 @@ Implement a clean RESTful API using FastAPI and Pydantic schemas for request val
 FastAPI, Uvicorn, Pydantic and Python 3.
 
 ## Technical Approach
+
+### Planning the book model in English first:
+Each book should store the details about the specific book including:
+The ISBN(International Standard Book Number) code which is a combination of a 13 digit or 10 digits number. 
+The title of the book.
+The publisher name of the company that published the book.
+The publication year in which the book was published.
+The price of the book.
+The author or authors of the book.
+The quantity of stock available for the specific book as a number between 0 and 1000.
 ### Define Pydantic models for Book schema
+
 
 ### Implement GET, POST, PUT, DELETE endpoints
 
