@@ -113,7 +113,10 @@ activate.bat
 pip install fastapi uvicorn pydantic
 ```
 Command to start the server:
+first change the current directory by moving up two folders.
 ```
+cd ../
+cd ../
 python -m uvicorn server:app --reload
 ```
 
