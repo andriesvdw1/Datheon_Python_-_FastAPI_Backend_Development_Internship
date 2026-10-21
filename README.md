@@ -24,6 +24,7 @@ Every time a book is added to the books collection the id value of the new book 
 
 ### Define Pydantic models for Book schema
 ```python
+from typing import Optional
 from decimal import Decimal
 from pydantic import BaseModel, Field
 
