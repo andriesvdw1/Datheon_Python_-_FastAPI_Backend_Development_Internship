@@ -79,7 +79,7 @@ def create_book(book: Book):
 @app.get("/books/{book_id}", response_model=BookOut)
 def get_book(book_id: int):
   if book_id not in books:
-    raise HTTPexception(status_code=404, detail="Book is not found, perhaps the incorrect book id number was entered.")
+    raise HTTPException(status_code=404, detail="Book is not found, perhaps the incorrect book id number was entered.")
   return books[book_id]
 
 # code to update a book that already exists in the collection
