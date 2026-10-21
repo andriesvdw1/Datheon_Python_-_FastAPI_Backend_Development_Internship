@@ -19,6 +19,8 @@ The publication year in which the book was published.
 The price of the book.
 The author or authors of the book.
 The quantity of stock available for the specific book as a number between 0 and 1000.
+The collection of books will be stored in a Python dictionary.
+Every time a book is added to the books collection the id value of the new book increases by 1.
 
 ### Define Pydantic models for Book schema
 ```python
@@ -42,9 +44,32 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
 app = FastAPI(title="BookStore REST API with Pydantic Validation")
+# code to confirm that the server is running
 app.get("/")
 def root():
   return{"service" : "BookStore REST API", "status" : "ok"}
+
+class BookOut(Book):
+  id: int
+
+books :dict[int, BookOut] = {}
+next_id = 1
+
+# code to create a new book and add it to the collection of books
+app.post("/books", response_model=BookOut, status_code=201)
+def create_book(book: Book):
+  global next_id
+  stored = BookOut(id=next_id, **book.model_dump())
+  books[next_id] = stored
+  next_id += 1
+  return stored
+
+# code to get a book by id value, if the book is in the collection
+@app.get("books"/{book_id}, response_model=BookOut)
+def get_book(book_id: int):
+  if book_id not in books:
+    raise HTTPexception(status_code=404, detail="Book is not found, perhaps the incorrect book id number was entered.")
+  return books[book_id]
 ```
 
 ### Add proper HTTP status codes and error handling to the endpoints
