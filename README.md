@@ -70,6 +70,16 @@ def get_book(book_id: int):
   if book_id not in books:
     raise HTTPexception(status_code=404, detail="Book is not found, perhaps the incorrect book id number was entered.")
   return books[book_id]
+
+# code to update a book that already exists in the collection
+@app.put("/books/{book_id}, response_model=BookOut)
+def update_book(book_id: int, book: Book):
+  if book_id not in books:
+    raise HTTPException(status_code=404, detail="Book is not found, perhaps the incorrect book id number was entered.")
+  stored= BookOut(id=book_id, **book.model_dump()
+  books[book_id] = stored
+  return stored 
+
 ```
 
 ### Add proper HTTP status codes and error handling to the endpoints
