@@ -65,14 +65,14 @@ def create_book(book: Book):
   return stored
 
 # code to get a book by id value, if the book is in the collection
-@app.get("books"/{book_id}, response_model=BookOut)
+@app.get("/books/{book_id}", response_model=BookOut)
 def get_book(book_id: int):
   if book_id not in books:
     raise HTTPexception(status_code=404, detail="Book is not found, perhaps the incorrect book id number was entered.")
   return books[book_id]
 
 # code to update a book that already exists in the collection
-@app.put("/books/{book_id}, response_model=BookOut)
+@app.put("/books/{book_id}", response_model=BookOut)
 def update_book(book_id: int, book: Book):
   if book_id not in books:
     raise HTTPException(status_code=404, detail="Book is not found, perhaps the incorrect book id number was entered.")
@@ -81,7 +81,7 @@ def update_book(book_id: int, book: Book):
   return stored 
 
 # code to remove a book from the books collection
-@app.delete("/books{book_id}", status_code=204)
+@app.delete("/books/{book_id}", status_code=204)
 def delete_book(book_id : int):
   if book_id not in books:
     raise HTTPException(status_code=404, detail="Book with specified book id value not found")
