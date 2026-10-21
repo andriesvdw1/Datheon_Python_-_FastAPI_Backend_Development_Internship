@@ -88,12 +88,12 @@ def update_book(book_id: int, book_update: BookUpdate):
   if book_id not in books:
     raise HTTPException(status_code=404, detail="Book is not found, perhaps the incorrect book id number was entered.")
   existing_book = books[book_id]
-#update the changed field values for the specified book
-update_data = book_update.model_dump(exclude_unset=True)
-updated_book_data = existing_book.model_copy(update=update_data)
+  #update the changed field values for the specified book
+  update_data = book_update.model_dump(exclude_unset=True)
+  updated_book_data = existing_book.model_copy(update=update_data)
 
-books[book_id] = updated_book_data[]
-return updated_book_data
+  books[book_id] = updated_book_data[]
+  return updated_book_data
 
 # code to remove a book from the books collection
 @app.delete("/books/{book_id}", status_code=204)
