@@ -1,5 +1,4 @@
 # Datheon Python - FastAPI Backend Development Internship  
-Application ID: DT-2026-X897O  
 Intern Full Name: Andries Van Der Westhuizen
 ## Task1 Name: BookStore REST API with Pydantic Validation
 ## Task1 Detailed Problem Statement and Requirements:
