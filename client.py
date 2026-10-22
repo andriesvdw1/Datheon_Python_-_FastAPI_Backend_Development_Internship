@@ -18,3 +18,13 @@ for book in books:
 for book in add_book:
 	r = httpx.post(f"{BASE}/books", json=book)
 	print(r.status_code, r.json())
+
+print("===================updated book:============================")
+# update one specific book by using the book id to reduce the price
+url =  "http://127.0.0.1:8000/books/3"
+payload = {"isbn" : "9781337102100","title":"Microsoft Visual C# 2017: An Introduction to Object-Oriented Programming", "author": "Joyce Farrell", "publisher": "Cengage Learning", "year_published": 2017, "price" : 200.00, "stock_quantity" : 1}
+
+r = httpx.put(url, json=payload)
+print(r.json())
+print("===========================================================")
+
