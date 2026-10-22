@@ -142,11 +142,12 @@ python client.py
 Output recieved command prompt shows success:
 ```
 ===================Available books:============================
-201 {'isbn': '9781801116022', 'title': 'python programming crash course', 'author': 'Tony F Charles ', 'publisher': 'Tony F. Charles', 'year_published': 2020, 'price': '28.75', 'stock_quantity': 1, 'id': 1}
-201 {'isbn': '9781593279929', 'title': 'Automate The Boring Stuff With Python, 2nd Edition', 'author': 'Al Sweigart', 'publisher': 'No Starch Press,US', 'year_published': 2019, 'price': '54.63', 'stock_quantity': 5, 'id': 2}
-201 {'isbn': '9781337102100', 'title': 'Microsoft Visual C# 2017: An Introduction to Object-Oriented Programming', 'author': 'Joyce Farrell', 'publisher': 'Cengage Learning', 'year_published': 2017, 'price': '213.65', 'stock_quantity': 1, 'id': 3}
+201 {'isbn': '9781801116022', 'title': 'python programming crash course', 'author': 'Tony F Charles ', 'publisher': 'Tony F. Charles', 'year_published': 2020, 'price': '28.75', 'stock_quantity': 1, 'id': 4}
+201 {'isbn': '9781593279929', 'title': 'Automate The Boring Stuff With Python, 2nd Edition', 'author': 'Al Sweigart', 'publisher': 'No Starch Press,US', 'year_published': 2019, 'price': '54.63', 'stock_quantity': 5, 'id': 5}
+201 {'isbn': '9781337102100', 'title': 'Microsoft Visual C# 2017: An Introduction to Object-Oriented Programming', 'author': 'Joyce Farrell', 'publisher': 'Cengage Learning', 'year_published': 2017, 'price': '213.65', 'stock_quantity': 1, 'id': 6}
 ==============================================================
-===================updated book:============================
+===================Updated book:============================
+200
 {'isbn': '9781337102100', 'title': 'Microsoft Visual C# 2017: An Introduction to Object-Oriented Programming', 'author': 'Joyce Farrell', 'publisher': 'Cengage Learning', 'year_published': 2017, 'price': '200.0', 'stock_quantity': 1, 'id': 3}
 ===========================================================
 ```
