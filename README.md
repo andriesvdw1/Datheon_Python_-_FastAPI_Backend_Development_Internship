@@ -170,7 +170,9 @@ Output recieved command prompt shows success:
 
 Output on the command prompt of the server shows success:
 ```
-INFO:     127.0.0.1:53175 - "POST /books HTTP/1.1" 201 Created
+INFO:     127.0.0.1:57445 - "POST /books HTTP/1.1" 201 Created
+INFO:     127.0.0.1:57446 - "POST /books HTTP/1.1" 201 Created
+INFO:     127.0.0.1:57447 - "POST /books HTTP/1.1" 201 Created
 ```
 ## Expected Deliverable:
 Running local API server with interactive Swagger UI (/docs) testing all CRUD operations.
