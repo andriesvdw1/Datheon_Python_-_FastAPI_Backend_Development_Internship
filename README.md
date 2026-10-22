@@ -163,6 +163,7 @@ python client.py
 Output recieved command prompt shows success:
 ```
 201 {'isbn': '9781801116022', 'title': 'python programming crash course', 'author': 'Tony F Charles ', 'publisher': 'Tony F. Charles', 'year_published': 2020, 'price': '28.75', 'stock_quantity': 1, 'id': 1}
+201 {'isbn': '9781593279929', 'title': 'Automate The Boring Stuff With Python, 2nd Edition', 'author': 'Al Sweigart', 'publisher': 'No Starch Press,US', 'year_published': 2019, 'price': '54.63', 'stock_quantity': 5, 'id': 2}
 ```
 
 Output on the command prompt of the server shows success:
