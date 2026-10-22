@@ -51,7 +51,7 @@ def get_book(book_id: int):
   return books[book_id]
 
 # code to update a book that already exists in the collection
-@app.put("/books/{book_id}", response_model=BookOut)
+@app.put("/books/{book_id}", response_model=BookOut, status_code=200)
 def update_book(book_id: int, book_update: BookUpdate):
   if book_id not in books:
     raise HTTPException(status_code=404, detail="Book is not found, perhaps the incorrect book id number was entered.")

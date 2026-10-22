@@ -27,6 +27,7 @@ url =  "http://127.0.0.1:8000/books/3"
 payload = {"isbn" : "9781337102100","title":"Microsoft Visual C# 2017: An Introduction to Object-Oriented Programming", "author": "Joyce Farrell", "publisher": "Cengage Learning", "year_published": 2017, "price" : 200.00, "stock_quantity" : 1}
 
 r = httpx.put(url, json=payload)
+print(r.status_code)
 print(r.json())
 print("===========================================================")
 
