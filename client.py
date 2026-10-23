@@ -10,7 +10,7 @@ add_book = [
 	{"isbn" : "9781593279929","title":"Automate The Boring Stuff With Python, 2nd Edition", "author": "Al Sweigart", "publisher": "No Starch Press,US", "year_published": 2019, "price" : 54.63, "stock_quantity" : 5},
 	{"isbn" : "9781337102100","title":"Microsoft Visual C# 2017: An Introduction to Object-Oriented Programming", "author": "Joyce Farrell", "publisher": "Cengage Learning", "year_published": 2017, "price" : 213.65, "stock_quantity" : 1},
 ]
-print("===================Available books:============================")
+print("===================Add initial books:============================")
 for book in books:
 	r = httpx.post(f"{BASE}/books", json=book)
 	print(r.status_code, r.json())
@@ -31,10 +31,12 @@ print(r.status_code)
 print(r.json())
 print("===========================================================")
 
-print("===================Delete book with id = 1============================")
+print("===================Delete book with id = 1:============================")
 url = "http://127.0.0.1:8000/books/del/1"
 r = httpx.delete(url=url)
 print(r.status_code)
 
-
-
+print("===================Display all avialable books:============================")
+url = "http://127.0.0.1:8000/books"
+r = httpx.get(url=url)
+print(r.json())
