@@ -64,7 +64,7 @@ def update_book(book_id: int, book_update: BookUpdate):
   return updated_book_data
 
 # code to remove a book from the books collection
-@app.delete("/books/{book_id}", status_code=204)
+@app.delete("/books/del/{book_id}", status_code=204)
 def delete_book(book_id : int):
   if book_id not in books:
     raise HTTPException(status_code=404, detail="Book with specified book id value not found")
