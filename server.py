@@ -44,7 +44,7 @@ def create_book(book: Book):
   return stored
 
 # code to display all the books in the collection
-app.get("/books", response_model=list[BookOut])
+@app.get("/books", response_model=list[BookOut])
 def get_all_books():
   return list(books.values())
 

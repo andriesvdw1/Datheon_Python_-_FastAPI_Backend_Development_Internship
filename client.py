@@ -29,7 +29,6 @@ payload = {"isbn" : "9781337102100","title":"Microsoft Visual C# 2017: An Introd
 r = httpx.put(url, json=payload)
 print(r.status_code)
 print(r.json())
-print("===========================================================")
 
 print("===================Delete book with id = 1:============================")
 url = "http://127.0.0.1:8000/books/del/1"
