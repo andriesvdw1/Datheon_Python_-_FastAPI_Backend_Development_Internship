@@ -141,23 +141,36 @@ python client.py
 
 Output recieved command prompt shows success:
 ```
-===================Available books:============================
-201 {'isbn': '9781801116022', 'title': 'python programming crash course', 'author': 'Tony F Charles ', 'publisher': 'Tony F. Charles', 'year_published': 2020, 'price': '28.75', 'stock_quantity': 1, 'id': 4}
-201 {'isbn': '9781593279929', 'title': 'Automate The Boring Stuff With Python, 2nd Edition', 'author': 'Al Sweigart', 'publisher': 'No Starch Press,US', 'year_published': 2019, 'price': '54.63', 'stock_quantity': 5, 'id': 5}
-201 {'isbn': '9781337102100', 'title': 'Microsoft Visual C# 2017: An Introduction to Object-Oriented Programming', 'author': 'Joyce Farrell', 'publisher': 'Cengage Learning', 'year_published': 2017, 'price': '213.65', 'stock_quantity': 1, 'id': 6}
+===================Add initial books:============================
+201 {'isbn': '9781801116022', 'title': 'python programming crash course', 'author': 'Tony F Charles ', 'publisher': 'Tony F. Charles', 'year_published': 2020, 'price': '28.75', 'stock_quantity': 1, 'id': 1}
+201 {'isbn': '9781593279929', 'title': 'Automate The Boring Stuff With Python, 2nd Edition', 'author': 'Al Sweigart', 'publisher': 'No Starch Press,US', 'year_published': 2019, 'price': '54.63', 'stock_quantity': 5, 'id': 2}
+201 {'isbn': '9781337102100', 'title': 'Microsoft Visual C# 2017: An Introduction to Object-Oriented Programming', 'author': 'Joyce Farrell', 'publisher': 'Cengage Learning', 'year_published': 2017, 'price': '213.65', 'stock_quantity': 1, 'id': 3}
 ==============================================================
 ===================Updated book:============================
 200
 {'isbn': '9781337102100', 'title': 'Microsoft Visual C# 2017: An Introduction to Object-Oriented Programming', 'author': 'Joyce Farrell', 'publisher': 'Cengage Learning', 'year_published': 2017, 'price': '200.0', 'stock_quantity': 1, 'id': 3}
-===========================================================
+===================Delete book with id = 1:============================
+204
+===================Display all avialable books:============================
+200
+[{'isbn': '9781593279929', 'title': 'Automate The Boring Stuff With Python, 2nd Edition', 'author': 'Al Sweigart', 'publisher': 'No Starch Press,US', 'year_published': 2019, 'price': '54.63', 'stock_quantity': 5, 'id': 2}, {'isbn': '9781337102100', 'title': 'Microsoft Visual C# 2017: An Introduction to Object-Oriented Programming', 'author': 'Joyce Farrell', 'publisher': 'Cengage Learning', 'year_published': 2017, 'price': '200.0', 'stock_quantity': 1, 'id': 3}]
 ```
 
 Output on the command prompt of the server shows success:
 ```
-INFO:     127.0.0.1:54412 - "POST /books HTTP/1.1" 201 Created
-INFO:     127.0.0.1:54413 - "POST /books HTTP/1.1" 201 Created
-INFO:     127.0.0.1:54414 - "POST /books HTTP/1.1" 201 Created
-INFO:     127.0.0.1:54415 - "PUT /books/3 HTTP/1.1" 200 OK
+python -m uvicorn server:app --reload
+INFO:     Will watch for changes in these directories: ['C:\\Users\\Admin\\Desktop\\Internship 2026']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [8880] using StatReload
+INFO:     Started server process [4628]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:50078 - "POST /books HTTP/1.1" 201 Created
+INFO:     127.0.0.1:50079 - "POST /books HTTP/1.1" 201 Created
+INFO:     127.0.0.1:50080 - "POST /books HTTP/1.1" 201 Created
+INFO:     127.0.0.1:50081 - "PUT /books/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50082 - "DELETE /books/del/1 HTTP/1.1" 204 No Content
+INFO:     127.0.0.1:50083 - "GET /books HTTP/1.1" 200 OK
 ```
 ## Expected Deliverable:
 Running local API server with interactive Swagger UI (/docs) testing all CRUD operations.
