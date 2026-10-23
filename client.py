@@ -39,4 +39,5 @@ print(r.status_code)
 print("===================Display all avialable books:============================")
 url = "http://127.0.0.1:8000/books"
 r = httpx.get(url=url)
+print(r.status_code)
 print(r.json())

@@ -46,7 +46,7 @@ def create_book(book: Book):
 # code to display all the books in the collection
 app.get("/books", response_model=list[BookOut])
 def get_all_books():
-  return list(books.values)
+  return list(books.values())
 
 # code to get a book by id value, if the book is in the collection
 @app.get("/books/{book_id}", response_model=BookOut)
