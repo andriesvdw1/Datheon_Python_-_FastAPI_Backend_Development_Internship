@@ -174,3 +174,344 @@ INFO:     127.0.0.1:50083 - "GET /books HTTP/1.1" 200 OK
 ```
 ## Expected Deliverable:
 Running local API server with interactive Swagger UI (/docs) testing all CRUD operations.
+
+Output from /docs:
+BookStore REST API with Pydantic Validation
+ 0.1.0 
+OAS 3.1
+/openapi.json
+default
+
+
+GET
+/
+Root
+
+
+Parameters
+Try it out
+No parameters
+
+Responses
+Code	Description	Links
+200	
+Successful Response
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+"string"
+No links
+
+GET
+/books
+Get All Books
+
+
+Parameters
+Try it out
+No parameters
+
+Responses
+Code	Description	Links
+200	
+Successful Response
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "isbn": "stringstri",
+    "title": "string",
+    "author": "string",
+    "publisher": "string",
+    "year_published": 1000,
+    "price": "string",
+    "stock_quantity": 1000,
+    "id": 0
+  }
+]
+No links
+
+POST
+/books
+Create Book
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "isbn": "stringstri",
+  "title": "string",
+  "author": "string",
+  "publisher": "string",
+  "year_published": 1000,
+  "price": 0,
+  "stock_quantity": 1000
+}
+Responses
+Code	Description	Links
+201	
+Successful Response
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "isbn": "stringstri",
+  "title": "string",
+  "author": "string",
+  "publisher": "string",
+  "year_published": 1000,
+  "price": "string",
+  "stock_quantity": 1000,
+  "id": 0
+}
+No links
+422	
+Validation Error
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "detail": [
+    {
+      "loc": [
+        "string",
+        0
+      ],
+      "msg": "string",
+      "type": "string",
+      "input": "string",
+      "ctx": {}
+    }
+  ]
+}
+No links
+
+GET
+/books/{book_id}
+Get Book
+
+
+Parameters
+Try it out
+Name	Description
+book_id *
+integer
+(path)
+book_id
+Responses
+Code	Description	Links
+200	
+Successful Response
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "isbn": "stringstri",
+  "title": "string",
+  "author": "string",
+  "publisher": "string",
+  "year_published": 1000,
+  "price": "string",
+  "stock_quantity": 1000,
+  "id": 0
+}
+No links
+422	
+Validation Error
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "detail": [
+    {
+      "loc": [
+        "string",
+        0
+      ],
+      "msg": "string",
+      "type": "string",
+      "input": "string",
+      "ctx": {}
+    }
+  ]
+}
+No links
+
+PUT
+/books/{book_id}
+Update Book
+
+
+Parameters
+Try it out
+Name	Description
+book_id *
+integer
+(path)
+book_id
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "isbn": "stringstri",
+  "title": "string",
+  "author": "string",
+  "publisher": "string",
+  "year_published": 1000,
+  "price": 0,
+  "stock_quantity": 1000
+}
+Responses
+Code	Description	Links
+200	
+Successful Response
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "isbn": "stringstri",
+  "title": "string",
+  "author": "string",
+  "publisher": "string",
+  "year_published": 1000,
+  "price": "string",
+  "stock_quantity": 1000,
+  "id": 0
+}
+No links
+422	
+Validation Error
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "detail": [
+    {
+      "loc": [
+        "string",
+        0
+      ],
+      "msg": "string",
+      "type": "string",
+      "input": "string",
+      "ctx": {}
+    }
+  ]
+}
+No links
+
+DELETE
+/books/del/{book_id}
+Delete Book
+
+
+Parameters
+Try it out
+Name	Description
+book_id *
+integer
+(path)
+book_id
+Responses
+Code	Description	Links
+204	
+Successful Response
+
+No links
+422	
+Validation Error
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "detail": [
+    {
+      "loc": [
+        "string",
+        0
+      ],
+      "msg": "string",
+      "type": "string",
+      "input": "string",
+      "ctx": {}
+    }
+  ]
+}
+No links
+
+Schemas
+BookCollapse allobject
+isbnExpand allstring[10, 13] characters
+titlestring[1, 255] characters
+authorstring[1, 100] characters
+publisherstring[1, 35] characters
+year_publishedExpand allinteger[1000, 2100]
+priceExpand all(number | string)
+stock_quantityinteger[0, 1000]
+BookOutCollapse allobject
+isbnExpand allstring[10, 13] characters
+titlestring[1, 255] characters
+authorstring[1, 100] characters
+publisherstring[1, 35] characters
+year_publishedExpand allinteger[1000, 2100]
+priceExpand allstring
+stock_quantityinteger[0, 1000]
+idinteger
+BookUpdateCollapse allobject
+isbnExpand all(string | null)
+titleExpand all(string | null)
+authorExpand all(string | null)
+publisherExpand all(string | null)
+year_publishedExpand all(integer | null)
+priceExpand all(number | string | null)
+stock_quantityExpand all(integer | null)
+HTTPValidationErrorCollapse allobject
+detailExpand allarray<object>
+ValidationErrorCollapse allobject
+locExpand allarray<(string | integer)>
+msgstring
+typestring
+inputany
+ctxobject
