@@ -84,7 +84,7 @@ def user_login(user: UserLogin):
         )
     # access for a token will expire after 30 minutes
     access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
-    access_token = create_access_token(
+    access_token = new_access_token(
         data = {"sub" : user.email}, expires_delta=access_token_expires
     )
     return{"access_token": access_token, "token_type": "bearer"}
