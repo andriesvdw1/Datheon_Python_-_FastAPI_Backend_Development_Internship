@@ -5,6 +5,11 @@ from pydantic import BaseModel, EmailStr
 from typing import Optional
 from datetime import datetime, timedelta
 # Create the FASTAPI endpoints for a user to register and login
+
+# Define that a user has a email and password
+class UserCreate(BaseModel):
+    email: EmailStr
+    password: str
 # User registration endpoint
 @app.post("/register", status_code=status.HTTP_201_CREATED)
 def new_user_register(user: UserCreate):
