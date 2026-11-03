@@ -30,6 +30,12 @@ class UserCreate(BaseModel):
 class UserLogin(BaseModel):
     email: EmailStr
     password: str
+
+# Define the Token pydantic model
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
 # User registration endpoint
 @app.post("/register", status_code=status.HTTP_201_CREATED)
 def new_user_register(user: UserCreate):
