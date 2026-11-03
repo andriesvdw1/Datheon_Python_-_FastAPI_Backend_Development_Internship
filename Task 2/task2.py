@@ -4,6 +4,21 @@ from passlib.context import CryptContext
 from pydantic import BaseModel, EmailStr
 from typing import Optional
 from datetime import datetime, timedelta
+
+# Configuration and setup of in-memory database
+SECRET_KEY = ""
+ALGORITHM = "HS256"
+ACCESS_TOKEN_EXPIRE_MINUTES = 30
+
+# instantiate an instance of FastAPI
+app = FastAPI()
+
+# Password hashing configuration
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+# In-memory database
+memory_users_db = {}
+
 # Create the FASTAPI endpoints for a user to register and login
 
 # Define that a user has a email and password
