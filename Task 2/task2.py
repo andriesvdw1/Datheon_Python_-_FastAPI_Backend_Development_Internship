@@ -79,7 +79,7 @@ def user_login(user: UserLogin):
     if not db_user:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="email or password is invalid"
+            detail="email or password is invalid",
             headers={"WWW-Authenticate", "Bearer"},
         )
     # access for a token will expire after 30 minutes
