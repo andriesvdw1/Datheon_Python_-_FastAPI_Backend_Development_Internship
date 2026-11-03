@@ -25,6 +25,11 @@ memory_users_db = {}
 class UserCreate(BaseModel):
     email: EmailStr
     password: str
+
+# Define the User login pydantic model
+class UserLogin(BaseModel):
+    email: EmailStr
+    password: str
 # User registration endpoint
 @app.post("/register", status_code=status.HTTP_201_CREATED)
 def new_user_register(user: UserCreate):
@@ -36,7 +41,7 @@ def new_user_register(user: UserCreate):
 
     # Use a hashed password for security purposes
     hashed_password = hash_password(user.password)
-    fake_users_db[user.email] = {
+    memory_users_db[user.email] = {
         "email": user.email,
         "hashed_password": hashed_password
     }
@@ -44,3 +49,16 @@ def new_user_register(user: UserCreate):
     # Inform user on the successful user registration
     return {"message": "User registration successful", "email": user.email}
 
+# User login endpoint
+@app.post("/login", response_model=Token)
+def user_login(user: UserLogin):
+    db_user = memory_users_db.get(user.email)
+
+    # Check if the user exists in the in-memory database
+    if not db_user:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="email or password is invalid"
+            headers={"WWW-Authenticate", "Bearer"},
+        )
+    return{"message": "Login successful"}
