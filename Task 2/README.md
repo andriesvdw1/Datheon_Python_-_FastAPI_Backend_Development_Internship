@@ -4,6 +4,9 @@ Secure FastAPI endpoints with JSON Web Tokens and password hashing.
 # Detailed problem statement and requirements
 Create user registration and login endpoints that issue signed JWT tokens using passlib/bcrypt, and protect sensitive routes via Depends(get_current_user).
 
+# Dependencies to be installed using the command:
+pip install fastapi uvicorn "passlib[bcrypt]" python-jose[cryptography] pydantic email-validator
+
 # Technical Approach
 Implement OAuth2PasswordBearer security scheme, hash passwords with bcrypt, verify tokens and extract claims in route dependencies.
 
