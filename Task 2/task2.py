@@ -5,4 +5,22 @@ from pydantic import BaseModel, EmailStr
 from typing import Optional
 from datetime import datetime, timedelta
 # Create the FASTAPI endpoints for a user to register and login
+# User registration endpoint
+@app.post("/register", status_code=status.HTTP_201_CREATED)
+def new_user_register(user: UserCreate):
+    if user.email in memory_users_db:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Email already in use for a user"
+        )
+
+    # Use a hashed password for security purposes
+    hashed_password = hash_password(user.password)
+    fake_users_db[user.email] = {
+        "email": user.email,
+        "hashed_password": hashed_password
+    }
+
+    # Inform user on the successful user registration
+    return {"message": "User registration successful", "email": user.email}
 
