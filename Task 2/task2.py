@@ -75,8 +75,8 @@ def new_user_register(user: UserCreate):
 def user_login(user: UserLogin):
     db_user = memory_users_db.get(user.email)
 
-    # Check if the user exists in the in-memory database
-    if not db_user:
+    # Check if the user exists in the in-memory database and password matches
+    if not db_user or not verify_password(user.password, db_user["hashed_password"]):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="email or password is invalid",
