@@ -80,7 +80,7 @@ def user_login(user: UserLogin):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="email or password is invalid",
-            headers={"WWW-Authenticate", "Bearer"},
+            headers={"WWW-Authenticate": "Bearer"},
         )
     # access for a token will expire after 30 minutes
     access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
