@@ -40,6 +40,9 @@ class Token(BaseModel):
 def hash_password(password: str) -> str:
     return pwd_context.hash(password)
 
+# Verify password function to check hashed password with unhashed password
+def verify_password(password: str, hashed_password: str) -> bool:
+    return pwd_context.verify(password, hashed_password)
 
 # User registration endpoint
 @app.post("/register", status_code=status.HTTP_201_CREATED)
