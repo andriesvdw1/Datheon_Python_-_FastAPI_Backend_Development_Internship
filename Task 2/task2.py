@@ -36,6 +36,11 @@ class Token(BaseModel):
     access_token: str
     token_type: str
 
+# hash password function
+def hash_password(password: str) -> str:
+    return pwd_context.hash(password)
+
+
 # User registration endpoint
 @app.post("/register", status_code=status.HTTP_201_CREATED)
 def new_user_register(user: UserCreate):
