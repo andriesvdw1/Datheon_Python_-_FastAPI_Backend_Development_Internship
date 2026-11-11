@@ -6,7 +6,7 @@ from typing import Optional
 from datetime import datetime, timedelta
 
 # Configuration and setup of in-memory database
-SECRET_KEY = ""
+SECRET_KEY = "260a064799c1b4df21279a0a70fd9c537b49c356e3939b0927a1db9df5c2d8ef"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
