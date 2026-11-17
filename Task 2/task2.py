@@ -92,14 +92,17 @@ def user_login(user: UserLogin):
     return {"access_token": access_token, "token_type": "bearer"}
 
 
-# Protected Route Endpoint
-@app.get("/users/me")
-def find_users_me(token: str = Depends(oauth2_scheme)):
+def get_current_user(token: str = Depends(oauth2_scheme)):
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         email: str = payload.get("sub")
         if email is None:
             raise HTTPException(status_code=401, detail="Invalid credentials")
-        return {"email": email}
+        return email
     except JWTError:
-        raise HTTPException(status_code=401, detail="Could not validate credentials")
+        raise HTTPException(status_code=401, detail="Credentials did not match")
+
+# Protected Route Endpoint
+@app.get("/users/me")
+def find_users_me(current_user: str = Depends(get_current_user)):
+    return {"email": current_user}
