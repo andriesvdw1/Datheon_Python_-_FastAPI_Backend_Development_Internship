@@ -12,6 +12,10 @@ Implement OAuth2PasswordBearer security scheme, hash passwords with bcrypt, veri
 
 # Tools
 FastAPI, python-jose, passlib[bcrypt]
+# Command to run the server:
+```
+python -m uvicorn task2:app --reload
+```
 
 # Command to run the tests:
 ```
