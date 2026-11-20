@@ -14,3 +14,8 @@ Implement OAuth2PasswordBearer security scheme, hash passwords with bcrypt, veri
 FastAPI, python-jose, passlib[bcrypt]
 
 # Expected Deliverable: Secured API endpoints rejecting unauthorized calls and returning protected data for authenticated users.
+
+# Command to run the tests:
+```
+python -m pytest -s test_task2.py
+```
