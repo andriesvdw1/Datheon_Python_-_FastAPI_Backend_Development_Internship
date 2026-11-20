@@ -1,3 +1,5 @@
+# Datheon Python - FastAPI Backend Development Internship  
+Intern Full Name: Andries Van Der Westhuizen
 # Task 2 User Authentication & RBAC with JWT
 Secure FastAPI endpoints with JSON Web Tokens and password hashing.
 
